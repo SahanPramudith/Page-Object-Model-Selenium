@@ -4,6 +4,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.RegisterPage;
+import pages.RegisterSuccesPage;
 
 import java.time.Duration;
 
@@ -22,6 +24,18 @@ public class TC_0001_RegisterUser {
     public void Test001(){
         HomePage homePage = new HomePage(driver);
         homePage.click_register_button();
+        //-------------------------------
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.setFirstName("sahan");
+        registerPage.setLastName("paramudith");
+        registerPage.setCountry();
+        registerPage.setUserName("sahan123");
+        registerPage.setPassword("sahan123");
+        registerPage.setConfirmPassword("sahan123");
+        registerPage.clickSubmit();
+        //--------------------------
+        RegisterSuccesPage registerSuccesPage = new RegisterSuccesPage(driver);
+        registerSuccesPage.successPage();
 
     }
 
